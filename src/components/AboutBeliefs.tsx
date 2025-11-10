@@ -1,11 +1,17 @@
-import { SwiperSlide } from "swiper/react";
-import Slider from "./Slider";
-import PastorJC from "../assets/jc.jpg";
+import God from "../assets/beliefs/holy_trinity.webp";
+import JesusChrist from "../assets/beliefs/jesus_christ.jpg";
+import HolySpirit from "../assets/beliefs/holy_spirit.webp";
+import Bible from "../assets/beliefs/bible.webp";
+import Salvation from "../assets/beliefs/salvation.jpg";
+import Church from "../assets/beliefs/church.jpg";
 import GridCard from "./GridCard";
+import Img from "./Img";
+import { useState } from "react";
+import PlayButton from "./PlayButton";
 
 const gridCards = [
   {
-    src: PastorJC,
+    src: God,
     heading: "God",
     description: `
       We believe in one true and living God—Creator of all things, holy
@@ -16,7 +22,7 @@ const gridCards = [
     `,
   },
   {
-    src: PastorJC,
+    src: JesusChrist,
     heading: "Jesus",
     description: `
       We believe Jesus Christ is the Son of God—fully God and fully man.
@@ -27,7 +33,7 @@ const gridCards = [
     `,
   },
   {
-    src: PastorJC,
+    src: HolySpirit,
     heading: "Holy Spirit",
     description: `
       We believe the Holy Spirit is God, active in the world today. He
@@ -39,7 +45,7 @@ const gridCards = [
     `,
   },
   {
-    src: PastorJC,
+    src: Bible,
     heading: "Bible",
     description: `
       We believe the Bible—made up of 39 books in the Old Testament and 27
@@ -50,7 +56,7 @@ const gridCards = [
     `,
   },
   {
-    src: PastorJC,
+    src: Salvation,
     heading: "Salvation",
     description: `
       We believe salvation is God's gracious gift—planned from eternity
@@ -61,7 +67,7 @@ const gridCards = [
     `,
   },
   {
-    src: PastorJC,
+    src: Church,
     heading: "Church",
     description: `
       We believe the Church includes all who trust Jesus as Lord and
@@ -73,20 +79,55 @@ const gridCards = [
 ];
 
 const AboutBeliefs = () => {
+  const [cardIndex, setCardIndex] = useState(0);
+
+  const showNext = () => {
+    if (cardIndex === gridCards.length - 1) return setCardIndex(0);
+    return setCardIndex(cardIndex + 1);
+  };
+
+  const showPrevious = () => {
+    if (cardIndex === 0) return setCardIndex(gridCards.length - 1);
+    return setCardIndex(cardIndex - 1);
+  };
+
+  const gridCard = gridCards[cardIndex];
+
   return (
-    <section className="block container">
-      <header>
-        <h2>Our Beliefs</h2>
+    <section className="about__beliefs">
+      <header className="belief__header">
+        <h2 className="belief__heading">Our Beliefs</h2>
       </header>
-      <Slider slidesPerView={1}>
-        {gridCards.map((card) => (
-          <SwiperSlide>
-            <GridCard src={card.src} heading={card.heading}>
-              {card.description}
+      <div className="flex">
+        <div className="belief__slide">
+          <Img src={gridCard.src} className="belief__image" />
+          <div className="belief__description">
+            <GridCard heading={gridCard.heading}>
+              {gridCard.description}
             </GridCard>
-          </SwiperSlide>
-        ))}
-      </Slider>
+            <PlayButton
+              inverted={true}
+              isWhite={true}
+              onClick={showPrevious}
+              className="belief__btn left"
+            />
+            <PlayButton
+              isWhite={true}
+              onClick={showNext}
+              className="belief__btn right"
+            />
+          </div>
+
+          {/* {gridCards.map((card) => (
+            <>
+              <GridCard heading={card.heading}>{card.description}</GridCard>
+              <Img src={card.src} className="belief__image" />
+              <PlayButton inverted={true} isWhite={true} />
+              <PlayButton isWhite={true} />
+            </>
+          ))} */}
+        </div>
+      </div>
     </section>
   );
 };

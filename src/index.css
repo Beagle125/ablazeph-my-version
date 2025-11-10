@@ -892,15 +892,33 @@ nav.active .mobile__menu {
 /* GRID CARD */
 
 .grid__card {
-  max-width: 1130px;
-  width: 100%;
+  max-width: 100%;
   background-color: var(--color-shade);
   padding: 4rem;
+  margin: 0;
   border-radius: 7px;
+}
+
+.grid__card,
+.grid__card p {
+  color: var(--color-text);
 }
 
 .grid__card img {
   border-radius: 7px;
+}
+
+@media screen and (min-width: 768px) {
+  .grid__card {
+    max-width: 300px;
+    background-color: transparent;
+    backdrop-filter: blur(300px);
+  }
+
+  .grid__card,
+  .grid__card p {
+    color: #fff;
+  }
 }
 
 /* FEATURE */
@@ -1110,6 +1128,7 @@ nav.active .mobile__menu {
 
 .btn--circle:active {
   background: linear-gradient(var(--color-primary), var(--color-secondary));
+  color: #fff;
 }
 
 @keyframes hop {
@@ -1981,7 +2000,7 @@ input::-webkit-inner-spin-button {
 }
 
 .about__heading {
-  font-size: 24vw;
+  font-size: 23vw;
   font-weight: 700;
   white-space: nowrap;
   position: absolute;
@@ -2029,11 +2048,81 @@ input::-webkit-inner-spin-button {
   }
 }
 
+/* ABOUT BELIEFS */
+
+.about__beliefs {
+  position: relative;
+}
+
+.belief__header {
+  padding-top: 4rem;
+}
+
+.belief__image {
+  width: 100%;
+  z-index: -1;
+  aspect-ratio: 1 / 1;
+}
+
+.belief__description {
+  position: relative;
+}
+
+.belief__btn {
+  position: absolute;
+  top: -20px;
+  z-index: 1;
+  box-shadow: none;
+}
+
+.belief__btn.left,
+.belief__btn.right {
+  box-shadow: 0 0 4px var(--color-border);
+  animation: none;
+}
+
+.belief__btn.left {
+  right: 90px;
+}
+
+.belief__btn.right {
+  right: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .belief__heading {
+    color: #fff;
+    text-shadow: 1px 2px 2px var(--color-text);
+  }
+
+  .belief__slide {
+    height: 100vh;
+  }
+
+  .belief__image {
+    aspect-ratio: none;
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+
+  .belief__btn {
+    top: 20px;
+  }
+
+  .belief__btn.left {
+    right: 70px;
+  }
+
+  .belief__btn.right {
+    right: 20px;
+  }
+}
+
 /* VALUES */
 
 .values__container {
   position: relative;
-  height: 100vh;
 }
 
 .value__content {
@@ -2087,6 +2176,11 @@ input::-webkit-inner-spin-button {
 }
 
 @media screen and (min-width: 768px) {
+  .values__container {
+    height: 100vh;
+    background: linear-gradient(transparent 80%, var(--color-primary-lighter));
+  }
+
   .value__btn,
   .value__tagline,
   .value__description p {
