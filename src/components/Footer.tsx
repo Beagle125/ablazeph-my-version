@@ -12,9 +12,6 @@ const Footer = () => {
         <div className="grid footer__grid top">
           <Logo />
           <div className="flex flex--wrap justify--center footer__icons">
-            <Link to="/" className="footer__icon">
-              <FaXTwitter />
-            </Link>
             <Link
               target="_blank"
               to="https://www.facebook.com/ablazeforjesus"
@@ -22,18 +19,12 @@ const Footer = () => {
             >
               <FaFacebookF />
             </Link>
-            <Link to="/" className="footer__icon">
-              <FaTiktok />
-            </Link>
             <Link
               target="_blank"
               to="https://www.instagram.com/ablazeforjesus_/"
               className="footer__icon"
             >
               <FaInstagram />
-            </Link>
-            <Link to="/" className="footer__icon">
-              <SiGmail />
             </Link>
             <Link
               target="_blank"
