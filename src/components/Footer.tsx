@@ -1,8 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
-import { FaFacebookF, FaTiktok, FaInstagram, FaYoutube } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { SiGmail, SiGooglemaps } from "react-icons/si";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { SiGooglemaps } from "react-icons/si";
 import { leftLinks, rightLinks } from "../data/links";
 
 const Footer = () => {
