@@ -11,6 +11,7 @@ const Img = ({ src, alt, isCircle = false, className }: Props) => {
       className={`img ${isCircle && "img--circle"} ${className}`}
       src={src}
       alt={alt}
+      loading="lazy"
     />
   );
 };
