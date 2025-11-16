@@ -1265,7 +1265,7 @@ nav.active .mobile__menu {
   .image__container.active {
     left: 50%;
     transform: translateX(-50%);
-    width: auto; /* remove or not for full screen or regular zoom */
+    width: auto; /* remove or not for the full screen or regular zoom */
   }
 }
 
